@@ -12,12 +12,14 @@ class User < ActiveRecord::Base
   end
 
   def self.find_by_slack_id(slack_id)
-    client = Slack::RPC::Client.new(ENV.fetch('SLACK_API_TOKEN'))
+  end
 
+  def fetch_slack_id
+    client = Slack::RPC::Client.new(ENV.fetch('SLACK_API_TOKEN'))
     slack_user = client.users.list.body["members"].find do |slack_user|
-      slack_user["id"] == slack_id
+      slack_user["name"] == slack_username
     end
 
-    where(slack_username: slack_user[:name]).first
+    slack_user && slack_user["id"]
   end
 end
