@@ -8,7 +8,7 @@ class SlackListener
       client = SlackRTM::Client.new websocket_url: slack_url
       puts 'Listening'
       client.on(:message) do |data|
-        SlackEventHandler.handle(data)
+        SlackEventHandler.handle(data, client)
       end
       client.main_loop
     end

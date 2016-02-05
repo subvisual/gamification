@@ -11,6 +11,10 @@ class SlackEvent
     data[:type]
   end
 
+  def channel
+    data[:channel]
+  end
+
   def text
     data[:text]
   end
