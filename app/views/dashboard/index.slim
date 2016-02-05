@@ -1,0 +1,12 @@
+h1 Gamification
+
+.PlayersOverview  
+  - @players.each do |player|
+    .PlayerStatus
+      .PlayerStatus-avatar
+        img.Avatar(src="https://subvisual.co/images/team/bruno-azevedo-8c83f605.png")
+      .PlayerStatus-details
+        p= player.name
+        p= player.points
+      .PlayerStatus-infoBar
+        p Level 5

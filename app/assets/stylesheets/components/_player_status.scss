@@ -1,0 +1,52 @@
+$PlayerStatus-width: 30%;
+$PlayerStatus-height: 180px;
+
+$PlayerStatus-avatar-size: 40%;
+$PlayerStatus-details-size: 60%;
+
+$PlayerStatus-infoBar-height: 80px;
+
+.PlayerStatus {
+  flex: 1 0 $PlayerStatus-width;
+
+  position: relative;
+
+  height: $PlayerStatus-height;
+  max-width: $PlayerStatus-width;
+
+  margin-bottom: 50px;
+}
+
+.PlayerStatus-avatar {
+  position: absolute;
+  bottom: 0;
+
+  width: 40%;
+
+  z-index: 1;
+}
+
+.PlayerStatus-details {
+  position: absolute;
+  left: 0;
+  bottom: $PlayerStatus-infoBar-height;
+
+  width: $PlayerStatus-details-size;
+
+  padding-left: calc(40% + 10px);
+}
+
+.PlayerStatus-infoBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: calc(60% - 10px);
+  height: $PlayerStatus-infoBar-height;
+
+  background-color: $Theme-color-blue;
+
+  padding-left: calc(40% + 10px);
+
+  color: $Theme-color-white;
+}
