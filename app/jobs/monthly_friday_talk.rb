@@ -3,35 +3,33 @@ class MonthlyFridayTalk
 
   def initialize
     @friday_talk = Action.where(slug: :friday_talk).first
-    @no_friday_talk = Action.where(slug: :no_friday_talk).first
 
-    raise 'Friday Talk task not found' if !@friday_talk
-    raise 'No Friday Talk task not found' if !@no_friday_talk
+    raise "Friday Talk task not found" unless friday_talk
   end
 
   def call
     return if already_ran
 
     ActiveRecord::Base.transaction do
-      User.all.each do |user|
-        next if already_made_friday_talk(user)
-
-        user.decrement!(:points, @no_friday_talk.points)
-        user.events.create(action: @no_friday_talk, points: @no_friday_talk.points)
-      end
-
+      users = User.all.select(&method(:no_friday_talk))
+      EventCreator.new(action_slug: :no_friday_talk, users: users).call
       JobLog.create(name: NAME)
     end
   end
 
   private
 
+  attr_reader :friday_talk
+
   def already_ran
-    last_run = JobLog.where(name: NAME).last
-    last_run && last_run.created_at > 30.days.ago
+    last_run_at > 1.months.ago
   end
 
-  def already_made_friday_talk(user)
-    user.events.where(action: @friday_talk, created_at: 30.days.ago..DateTime.now).count != 0
+  def no_friday_talk(user)
+    user.events.where(action: friday_talk, created_at: last_run_at..DateTime.now).empty?
+  end
+
+  def last_run_at
+    @_last_run_date ||= JobLog.for_name(NAME).pluck(:created_at).first || 2.months.ago
   end
 end
