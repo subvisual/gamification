@@ -55,6 +55,7 @@ class UserDashboard < Administrate::BaseDashboard
     :email,
     :name,
     :points,
+    :slack_username,
   ]
 
   def display_resource(user)
