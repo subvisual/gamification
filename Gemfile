@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.0'
 
+gem 'administrate'
 gem 'clearance'
 gem 'dotenv-rails'
 gem 'email_validator'
@@ -15,6 +16,7 @@ gem 'rails', '~> 4.2.0'
 gem 'recipient_interceptor'
 gem 'sass-rails'
 gem 'slim-rails'
+gem 'turbolinks'
 
 group :development do
   gem 'better_errors'
