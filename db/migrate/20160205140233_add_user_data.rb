@@ -3,8 +3,6 @@ class AddUserData < ActiveRecord::Migration
     change_table :users do |t|
       t.string :name, null: false
       t.string :points, default: 0
-
-      t.timestamps
     end
   end
 end
