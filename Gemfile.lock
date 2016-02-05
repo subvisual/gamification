@@ -239,6 +239,9 @@ GEM
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uglifier (2.7.2)
+      execjs (>= 0.3.0)
+      json (>= 1.8.0)
     unicode-display_width (0.3.1)
     websocket-driver (0.6.3)
       websocket-extensions (>= 0.1.0)
@@ -274,6 +277,7 @@ DEPENDENCIES
   slack-rtmapi
   slim-rails
   turbolinks
+  uglifier
 
 BUNDLED WITH
    1.11.2

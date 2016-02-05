@@ -18,6 +18,7 @@ gem 'sass-rails'
 gem 'slim-rails'
 gem 'slack-rtmapi'
 gem 'turbolinks'
+gem 'uglifier'
 
 group :development do
   gem 'better_errors'
