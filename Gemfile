@@ -17,6 +17,7 @@ gem 'recipient_interceptor'
 gem 'sass-rails'
 gem 'slim-rails'
 gem 'slack-rtmapi'
+gem 'slack-ruby', require: 'slack'
 gem 'turbolinks'
 gem 'uglifier'
 

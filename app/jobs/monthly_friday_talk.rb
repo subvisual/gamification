@@ -10,7 +10,7 @@ class MonthlyFridayTalk
   end
 
   def call
-    return if already_run
+    return if already_ran
 
     ActiveRecord::Base.transaction do
       User.all.each do |user|
@@ -26,7 +26,7 @@ class MonthlyFridayTalk
 
   private
 
-  def already_run
+  def already_ran
     last_run = JobLog.where(name: NAME).last
     last_run && last_run.created_at > 30.days.ago
   end
