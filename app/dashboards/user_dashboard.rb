@@ -18,6 +18,7 @@ class UserDashboard < Administrate::BaseDashboard
     remember_token: Field::String,
     name: Field::String,
     points: Field::String,
+    slack_username: Field::String
   }
 
   # COLLECTION_ATTRIBUTES
@@ -44,6 +45,7 @@ class UserDashboard < Administrate::BaseDashboard
     :remember_token,
     :name,
     :points,
+    :slack_username
   ]
 
   # FORM_ATTRIBUTES

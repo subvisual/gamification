@@ -13,7 +13,10 @@ class SlackEventHandler
 
       return unless receiver
 
-      receiver.events.create(action: props_action, points: props_action.action)
+      ActiveRecord::Base.transaction do
+        receiver.events.create(action: props_action, points: props_action.points)
+        receiver.increment!(:points, props_action.points)
+      end
       client.send(text: "Quarenta!", channel: event.channel, type: "message")
     end
   end

@@ -1,7 +1,7 @@
 class SlackEvent
   MENTION_REGEX = /\<@[A-Z0-9]+\>/
   SLACK_ID_REGEX = /[A-Z0-9]+/
-  EMOJI_REGEX = /:[^:]+:/
+  EMOJI_REGEX = /:[^:\s]+:/
 
   def initialize(data)
     @data = data.with_indifferent_access
