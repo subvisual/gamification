@@ -28,8 +28,7 @@ class UserDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :name,
-    :created_at,
-    :updated_at,
+    :points,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -56,10 +55,7 @@ class UserDashboard < Administrate::BaseDashboard
     :points,
   ]
 
-  # Overwrite this method to customize how users are displayed
-  # across all pages of the admin dashboard.
-  #
-  # def display_resource(user)
-  #   "User ##{user.id}"
-  # end
+  def display_resource(user)
+    user.name
+  end
 end

@@ -51,10 +51,7 @@ class ActionDashboard < Administrate::BaseDashboard
     :points,
   ]
 
-  # Overwrite this method to customize how actions are displayed
-  # across all pages of the admin dashboard.
-  #
-  # def display_resource(action)
-  #   "Action ##{action.id}"
-  # end
+  def display_resource(action)
+    action.name
+  end
 end
