@@ -212,6 +212,8 @@ GEM
       rake (~> 10.0)
       sass (~> 3.4.15)
     selectize-rails (0.12.1)
+    slack-rtmapi (1.0.0.rc4)
+      websocket-driver
     slim (3.0.6)
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
@@ -238,6 +240,9 @@ GEM
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     unicode-display_width (0.3.1)
+    websocket-driver (0.6.3)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.2)
 
 PLATFORMS
   ruby
@@ -266,6 +271,7 @@ DEPENDENCIES
   rubocop
   sass-rails
   scss_lint
+  slack-rtmapi
   slim-rails
   turbolinks
 

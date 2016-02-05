@@ -16,6 +16,7 @@ gem 'rails', '~> 4.2.0'
 gem 'recipient_interceptor'
 gem 'sass-rails'
 gem 'slim-rails'
+gem 'slack-rtmapi'
 gem 'turbolinks'
 
 group :development do
