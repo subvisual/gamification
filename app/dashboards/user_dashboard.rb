@@ -51,11 +51,7 @@ class UserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :events,
     :email,
-    :encrypted_password,
-    :confirmation_token,
-    :remember_token,
     :name,
     :points,
   ]
