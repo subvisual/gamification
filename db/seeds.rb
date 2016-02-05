@@ -12,4 +12,7 @@ User.create! [
 Action.create! [
   { slug: :props, name: 'Receive Props', points: 50 },
   { slug: :blog_post, name: 'Write a Blog Post', points: 250 },
+  { slug: :no_blog_post, name: 'No Blog Post', points: 50 },
+  { slug: :friday_talk, name: 'Make a Friday Talk', points: 125 },
+  { slug: :no_friday_talk, name: 'No Friday Talk', points: 25 }
 ]
