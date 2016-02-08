@@ -10,7 +10,7 @@ class EventCreator
     ActiveRecord::Base.transaction do
       users.each do |user|
         user.increment!(:points, action.points)
-        user.events.create(action: action)
+        user.events.create!(action: action)
       end
     end
   end

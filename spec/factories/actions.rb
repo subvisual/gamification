@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :action do
-    name "MyString"
-    points 1
-    team false
+    name { Faker::Name.name }
+    slug { Faker::Name.name.to_sym }
+    points 0
   end
 end

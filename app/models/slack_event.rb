@@ -19,6 +19,10 @@ class SlackEvent
     data[:text]
   end
 
+  def user
+    User.find_by_slack_id(data[:user])
+  end
+
   def message?
     type == "message"
   end
