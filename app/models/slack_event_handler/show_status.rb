@@ -14,7 +14,7 @@ class SlackEventHandler
 
     def status
       User.order(points: :desc).all.map do |user|
-        "#{user.name} has #{user.points} points"
+        "#{user.name} has #{user.points} points and #{user.props} props available"
       end.join("\n")
     end
   end

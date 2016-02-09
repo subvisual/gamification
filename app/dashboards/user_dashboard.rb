@@ -17,7 +17,8 @@ class UserDashboard < Administrate::BaseDashboard
     confirmation_token: Field::String,
     remember_token: Field::String,
     name: Field::String,
-    points: Field::String,
+    points: Field::Number,
+    props: Field::Number,
     slack_username: Field::String
   }
 
@@ -30,6 +31,7 @@ class UserDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :points,
+    :props,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -45,6 +47,7 @@ class UserDashboard < Administrate::BaseDashboard
     :remember_token,
     :name,
     :points,
+    :props,
     :slack_username
   ]
 
@@ -55,6 +58,7 @@ class UserDashboard < Administrate::BaseDashboard
     :email,
     :name,
     :points,
+    :props,
     :slack_username,
   ]
 

@@ -35,6 +35,10 @@ class SlackEvent
     end
   end
 
+  def mentioned_users
+    mentions.map { |slack_id| User.find_by_slack_id(slack_id) }
+  end
+
   def emojis
     return [] unless text
 

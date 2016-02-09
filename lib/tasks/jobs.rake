@@ -6,4 +6,8 @@ namespace :jobs do
   task quarterly_blog_post: :environment do
     QuarterlyBlogPost.new.call
   end
+
+  task reset_props: :environment do
+    ResetProps.new.call
+  end
 end

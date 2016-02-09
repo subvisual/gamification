@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
 
   has_many :events
 
-  validates_numericality_of :points, greater_than_or_equal_to: 0
-  validates_presence_of :name, :points, :email
+  validates_numericality_of :points, :props, greater_than_or_equal_to: 0
+  validates_presence_of :name, :points, :email, :props
 
   def first_name
     name.split.first

@@ -9,6 +9,6 @@ class Event < ActiveRecord::Base
   private
 
   def set_points
-    self.points ||= action.points
+    self.points ||= action&.points
   end
 end
