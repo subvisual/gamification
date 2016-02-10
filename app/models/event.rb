@@ -6,6 +6,8 @@ class Event < ActiveRecord::Base
 
   validates_presence_of :points
 
+  default_scope { order("created_at DESC") }
+
   private
 
   def set_points

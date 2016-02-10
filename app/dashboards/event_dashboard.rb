@@ -26,6 +26,7 @@ class EventDashboard < Administrate::BaseDashboard
     :action,
     :user,
     :points,
+    :created_at,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
