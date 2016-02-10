@@ -1,7 +1,5 @@
 class SlackEventHandler
-  class GiveProps
-    include Generic
-
+  class GiveProps < Base
     include MatcherList
     matcher Matchers::IsMessage
     matcher Matchers::HasMention
@@ -51,7 +49,7 @@ class SlackEventHandler
     end
 
     def send(text)
-      client.send(text: text, channel: event.channel, type: "message")
+      client.send_message(text)
     end
   end
 end

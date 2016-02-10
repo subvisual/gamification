@@ -1,20 +1,18 @@
 class SlackEventHandler
-  class ShowStatus
-    include Generic
-
+  class ShowStatus < Base
     include MatcherList
     matcher Matchers::IsMessage
-    matcher Matchers::HasRegex, regex: /status/
+    matcher Matchers::HasRegex, regex: /(status|game|board)/
 
     def run
-      client.send(type: "message", text: status, channel: event.channel)
+      client.send_message(status)
     end
 
     private
 
     def status
       User.order(points: :desc).all.map do |user|
-        "#{user.name} has #{user.points} points and #{user.props} props available"
+        "#{user.name} has #{user.points} points and #{user.props} props available."
       end.join("\n")
     end
   end

@@ -1,6 +1,5 @@
-module SlackEventHandler::Generic
+class SlackEventHandler::Base
   extend ActiveSupport::Concern
-  include MatcherList
 
   def initialize(event, client)
     @event = event

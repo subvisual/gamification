@@ -6,8 +6,8 @@ RSpec.describe SlackEventHandler::GiveProps do
   it "increments a user's points" do
     sender = create(:user, props: 1)
     receiver = create(:user, points: 0)
-    client = double(:client, send: true)
-    event = double(:event, channel: true, user: sender, mentioned_users: [receiver])
+    client = double(:client, send_message: true)
+    event = double(:event, user: sender, mentioned_users: [receiver])
 
     SlackEventHandler::GiveProps.new(event, client).run
 
@@ -17,8 +17,8 @@ RSpec.describe SlackEventHandler::GiveProps do
   it "creates an event" do
     sender = create(:user, props: 1)
     receiver = create(:user, points: 0)
-    client = double(:client, send: true)
-    event = double(:event, channel: true, user: sender, mentioned_users: [receiver])
+    client = double(:client, send_message: true)
+    event = double(:event, user: sender, mentioned_users: [receiver])
 
     SlackEventHandler::GiveProps.new(event, client).run
 
@@ -28,8 +28,8 @@ RSpec.describe SlackEventHandler::GiveProps do
   it "reduces the number of props a user can give" do
     sender = create(:user, props: 1)
     receiver = create(:user, points: 0)
-    client = double(:client, send: true)
-    event = double(:event, channel: true, user: sender, mentioned_users: [receiver])
+    client = double(:client, send_message: true)
+    event = double(:event, user: sender, mentioned_users: [receiver])
 
     SlackEventHandler::GiveProps.new(event, client).run
 
