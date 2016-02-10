@@ -3,6 +3,8 @@ class SlackEventHandler
     GiveProps,
     ShowStatus,
     SaveAction,
+    EndVacations,
+    StartVacations,
   ].freeze
 
   def self.handle(event)

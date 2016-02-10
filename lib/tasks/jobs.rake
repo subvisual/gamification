@@ -10,4 +10,8 @@ namespace :jobs do
   task reset_props: :environment do
     ResetProps.new.call
   end
+
+  task register_vacations: :environment do
+    RegisterVacations.new.call
+  end
 end

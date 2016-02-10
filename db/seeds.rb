@@ -15,7 +15,7 @@ User.create [
 Action.create! [
   { slug: :time_report, name: 'Submit Time Report', points: 5 },
   { slug: :link_newsletter, name: 'Link Newsletter', points: 10 },
-  { slug: :vacations, name: 'Vacations', points: 10 },
+  { slug: :day_on_vacations, name: 'Vacation Day', points: 10 },
   { slug: :props, name: 'Receive Props', points: 50 },
   { slug: :blog_post, name: 'Write a Blog Post', points: 250 },
   { slug: :friday_talk, name: 'Make a Friday Talk', points: 125 },

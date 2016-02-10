@@ -8,6 +8,20 @@ class User < ActiveRecord::Base
   validates_numericality_of :points, :props, greater_than_or_equal_to: 0
   validates_presence_of :name, :points, :email, :props
 
+  def start_vacations
+    update(started_vacations_at: DateTime.now)
+    save
+  end
+
+  def end_vacations
+    update(started_vacations_at: nil)
+    save
+  end
+
+  def on_vacations?
+    started_vacations_at.present?
+  end
+
   def self.find_by_slack_id(slack_id)
     client = Slack::RPC::Client.new(ENV.fetch("SLACK_API_TOKEN"))
 
