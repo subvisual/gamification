@@ -17,11 +17,11 @@ class SlackEventHandler
     private
 
     def send_no_action
-      client.send_message("I'm not sure I understood master. Could you please rephrase it?")
+      event.reply("I'm not sure I understood master. Could you please rephrase it?")
     end
 
     def send_success
-      client.send_message("Nice work master! I've registered your actions. They will be reminded throughout history! You now have #{event.user.points} points.")
+      event.reply("Nice work master! I've registered your actions. They will be reminded throughout history! You now have #{event.user.points} points.")
     end
   end
 end

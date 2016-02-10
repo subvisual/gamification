@@ -5,7 +5,7 @@ class SlackEventHandler
     matcher Matchers::HasRegex, regex: /(status|game|board)/
 
     def run
-      client.send_message(status)
+      event.reply(status)
     end
 
     private

@@ -3,8 +3,9 @@ class SlackEvent
   SLACK_ID_REGEX = /[A-Z0-9]+/
   EMOJI_REGEX = /:[^:\s]+:/
 
-  def initialize(data)
+  def initialize(data, client)
     @data = data.with_indifferent_access
+    @client = client
   end
 
   def type
@@ -21,6 +22,10 @@ class SlackEvent
 
   def user
     User.find_by_slack_id(data[:user])
+  end
+
+  def reply(message)
+    client.send(text: message, channel: channel, type: "message")
   end
 
   def message?
@@ -49,5 +54,5 @@ class SlackEvent
 
   private
 
-  attr_reader :data
+  attr_reader :data, :client
 end

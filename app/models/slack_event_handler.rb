@@ -5,9 +5,9 @@ class SlackEventHandler
     SaveAction,
   ].freeze
 
-  def self.handle(event, client)
+  def self.handle(event)
     HANDLERS.each do |handler|
-      handler.new(event, client).run_if_match
+      handler.new(event).run_if_match
     end
   end
 end

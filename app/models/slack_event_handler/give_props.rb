@@ -49,7 +49,7 @@ class SlackEventHandler
     end
 
     def send(text)
-      client.send_message(text)
+      event.reply(text)
     end
   end
 end

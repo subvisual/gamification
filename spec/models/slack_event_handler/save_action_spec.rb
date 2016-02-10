@@ -5,10 +5,9 @@ RSpec.describe SlackEventHandler::SaveAction do
 
   it "increments a user's points when a blog post is submitted" do
     sender = create(:user, points: 0)
-    client = double(:client, send_message: true)
-    event = double(:event, user: sender, text: "blog post")
+    event = double(:event, reply: true, user: sender, text: "blog post")
 
-    SlackEventHandler::SaveAction.new(event, client).run
+    SlackEventHandler::SaveAction.new(event).run
 
     expect(sender.points).to be blog_post_action.points
   end

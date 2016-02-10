@@ -1,9 +1,8 @@
 class SlackEventHandler::Base
   extend ActiveSupport::Concern
 
-  def initialize(event, client)
+  def initialize(event)
     @event = event
-    @client = client
   end
 
   def run_if_match
@@ -13,5 +12,5 @@ class SlackEventHandler::Base
 
   protected
 
-  attr_reader :event, :client
+  attr_reader :event
 end
