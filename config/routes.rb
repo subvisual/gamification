@@ -5,5 +5,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'dashboard#index'
+  root "dashboard#index"
+
+  get "/auth/headquarters/callback", to: "sessions#headquarters"
 end
