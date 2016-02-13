@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "2.3.0"
+ruby "2.2.3"
 
 gem "administrate"
 gem "clearance"
@@ -23,6 +23,7 @@ gem "slack-ruby", require: "slack"
 gem "slim-rails"
 gem "turbolinks"
 gem "uglifier"
+gem "whenever", :require => false
 
 group :development do
   gem "better_errors"

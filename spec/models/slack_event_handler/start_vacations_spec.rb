@@ -2,10 +2,10 @@ require "rails_helper"
 
 RSpec.describe SlackEventHandler::StartVacations do
   it "changes the user to being on vacations" do
-    user = create(:user)
+    event = double(:event, user: create(:user), reply: true)
 
-    SlackEventHandler::StartVacations.new(user: user).call
+    SlackEventHandler::StartVacations.new(event).run
 
-    expect(user).to be_on_vacations
+    expect(event.user).to be_on_vacations
   end
 end

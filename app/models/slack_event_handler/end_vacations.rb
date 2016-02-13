@@ -11,9 +11,5 @@ class SlackEventHandler
       event.user.end_vacations
       event.reply("Wellcome back master. I hope you had a nice time!")
     end
-
-    private
-
-    attr_reader :user
   end
 end

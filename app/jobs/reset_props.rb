@@ -8,6 +8,8 @@ class ResetProps
       User.all.map do |user|
         user.update!(props: 10)
       end
+
+      JobLog.create(name: NAME)
     end
   end
 

@@ -9,9 +9,5 @@ class SlackEventHandler
       event.user.start_vacations
       event.reply("Auf Wiedersehen master. Have a great time!")
     end
-
-    private
-
-    attr_reader :user
   end
 end

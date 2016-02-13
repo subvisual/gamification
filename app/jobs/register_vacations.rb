@@ -10,6 +10,8 @@ class RegisterVacations
 
         EventCreator.new(action_slug: :day_on_vacations, user: user).call
       end
+
+      JobLog.create(name: NAME)
     end
   end
 
