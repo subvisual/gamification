@@ -2,6 +2,7 @@ class SlackEventHandler
   class GiveProps < Base
     include MatcherList
     matcher Matchers::IsMessage
+    matcher Matchers::IsPerson
     matcher Matchers::HasMention
     matcher Matchers::HasEmoji, emoji: :props
 

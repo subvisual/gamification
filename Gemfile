@@ -6,6 +6,8 @@ gem "administrate"
 gem "clearance"
 gem "dotenv-rails"
 gem "email_validator"
+gem "eventmachine"
+gem "faye-websocket"
 gem "foreman"
 gem "jquery-rails"
 gem "omniauth"
@@ -18,12 +20,11 @@ gem "rack-timeout"
 gem "rails", "~> 4.2.0"
 gem "recipient_interceptor"
 gem "sass-rails"
-gem "slack-rtmapi"
-gem "slack-ruby", require: "slack"
+gem "slack-ruby-client"
 gem "slim-rails"
 gem "turbolinks"
 gem "uglifier"
-gem "whenever", :require => false
+gem "whenever", require: false
 
 group :development do
   gem "better_errors"

@@ -22,16 +22,6 @@ class User < ActiveRecord::Base
     started_vacations_at.present?
   end
 
-  def self.find_by_slack_id(slack_id)
-    client = Slack::RPC::Client.new(ENV.fetch("SLACK_API_TOKEN"))
-
-    slack_user = client.users.list.body["members"].find do |slack_user|
-      slack_user["id"] == slack_id
-    end
-
-    where(slack_username: slack_user["name"]).first
-  end
-
   def self.find_or_create_from_headquarters(info)
     where(email: info.email).first_or_initialize.tap do |user|
       user.update_attributes(email: info.email)

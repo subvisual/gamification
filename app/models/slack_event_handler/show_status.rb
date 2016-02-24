@@ -2,6 +2,7 @@ class SlackEventHandler
   class ShowStatus < Base
     include MatcherList
     matcher Matchers::IsMessage
+    matcher Matchers::IsPerson
     matcher Matchers::HasRegex, regex: /(status|game|board)/
 
     def run

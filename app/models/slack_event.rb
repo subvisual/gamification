@@ -8,24 +8,20 @@ class SlackEvent
     @client = client
   end
 
-  def type
-    data[:type]
-  end
-
-  def channel
-    data[:channel]
-  end
-
   def text
     data[:text]
   end
 
   def user
-    User.find_by_slack_id(data[:user])
+    find_user_by_slack_id(data[:user])
+  end
+
+  def bot?
+    client.self.name == user.slack_username
   end
 
   def reply(message)
-    client.send(text: message, channel: channel, type: "message")
+    client.message(text: message, channel: channel)
   end
 
   def message?
@@ -41,7 +37,7 @@ class SlackEvent
   end
 
   def mentioned_users
-    mentions.map { |slack_id| User.find_by_slack_id(slack_id) }
+    mentions.map { |slack_id| find_user_by_slack_id(slack_id) }
   end
 
   def emojis
@@ -55,4 +51,17 @@ class SlackEvent
   private
 
   attr_reader :data, :client
+
+  def type
+    data[:type]
+  end
+
+  def channel
+    data[:channel]
+  end
+
+  def find_user_by_slack_id(slack_id)
+    user = client.users[slack_id]
+    User.where(slack_username: user["name"]).first
+  end
 end

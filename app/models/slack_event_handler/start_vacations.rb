@@ -2,6 +2,7 @@ class SlackEventHandler
   class StartVacations < Base
     include MatcherList
     matcher Matchers::IsMessage
+    matcher Matchers::IsPerson
     matcher Matchers::HasRegex, regex: /(i am|i.m)/
     matcher Matchers::HasRegex, regex: /on vacations/
 

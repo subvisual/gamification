@@ -1,25 +1,22 @@
 class SlackListener
-  def initialize
-     @messages = Queue.new
-  end
-
   def start
-    @client_thread = Thread.new do
-      client = SlackRTM::Client.new websocket_url: slack_url
-      puts 'Listening'
+    EM.run do
+      client = Slack::RealTime::Client.new
+
+      client.on :hello do
+        puts "Successfully connected, welcome '#{client.self.name}' to the '#{client.team.name}' team at https://#{client.team.domain}.slack.com."
+      end
+
       client.on(:message) do |data|
+        puts "Received: #{data.text}" if Rails.env.development?
         event = SlackEvent.new(data, client)
         SlackEventHandler.handle(event)
       end
-      client.main_loop
-    end
 
-    @client_thread.abort_on_exception = true
+      client.start!
+      puts 'Listening'
+    end
   end
 
   private
-
-  def slack_url
-    SlackRTM.get_url token: ENV.fetch('SLACK_API_TOKEN')
-  end
 end
