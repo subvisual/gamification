@@ -1,5 +1,7 @@
 class SlackEventHandler
   HANDLERS = [
+    SetUser,
+    Unrecognized,
     GiveProps,
     ShowStatus,
     SaveAction,
@@ -8,8 +10,12 @@ class SlackEventHandler
   ].freeze
 
   def self.handle(event)
-    HANDLERS.each do |handler|
-      handler.new(event).run_if_match
+    handler = HANDLERS.find do |h|
+      h.new(event).can_handle?
     end
+
+    handler.new(event).run if handler
   end
+
+  private
 end

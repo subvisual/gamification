@@ -16,8 +16,12 @@ class SlackEvent
     find_user_by_slack_id(data[:user])
   end
 
+  def slack_username
+    client.users[data[:user]]["name"]
+  end
+
   def bot?
-    client.self.name == user.slack_username
+    client.self.name == slack_username
   end
 
   def reply(message)

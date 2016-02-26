@@ -2,7 +2,6 @@ class SlackEventHandler
   class SaveAction < Base
     include MatcherList
     matcher Matchers::IsMessage
-    matcher Matchers::IsPerson
     matcher Matchers::HasRegex, regex: /(did|done|made|wrote)/
 
     include ActionList

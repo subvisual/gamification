@@ -21,3 +21,13 @@
 
 en:
   hello: "Hello world"
+  error: "Something is not right. I don't seem to be myself. Please call R2D2."
+  bot:
+    hello: "Successfully connected, welcome '%{name}' to the '%{team_name}' team."
+    unkown_user: "I do not recognize you %{username}. Would you mind telling me your emal address?"
+    set_user:
+      already_set_same: "Yeah, yeah, I know who you are already!"
+      already_set: "Your username is already associated with the account %{email}"
+      success: "So, you are %{name}. I'll save your slack username then."
+      unkown: "There is no account for that email address. Do you have another email address for me to look for?"
+      conflict: "It appears @%{name} has already claimed that username. Handle it with him."

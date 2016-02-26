@@ -5,8 +5,11 @@ class SlackEventHandler::Base
     @event = event
   end
 
-  def run_if_match
-    return unless match?(event)
+  def can_handle?
+    match?(event)
+  end
+
+  def run
     run
   end
 
